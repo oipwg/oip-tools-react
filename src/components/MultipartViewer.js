@@ -5,9 +5,10 @@ class MultipartViewer extends Component {
 		return(
 			<div className="card" style={{marginTop:"20px"}}>
   				<div className="card-body">
-  					<div className="alert alert-secondary" role="alert">
+				  <p>TXID: <code>14c76824745fjfjgf553aatjkf5864</code></p>
+  					<p>FloData:<div className="alert alert-secondary" role="alert">
 						OIP-MP($partNumber, $multipartArrayLength, $PublisherAddress, $firstPartTXID, $Signature):choppedStringData
-					</div>
+					</div></p>
     				<p>Part Number: <code>$partNumber</code></p>
 					<p>Total Multipart Length: <code>$multipartArrayLength</code></p>
 					<p>Publisher Address: <code>$publisherAddress</code></p>
