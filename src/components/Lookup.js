@@ -18,7 +18,7 @@ class Lookup extends Component {
 		this.updateSearchText = this.updateSearchText.bind(this)
 	}
 	componentDidMount(){
-		this.getMultiparts('');
+		this.getMultiparts("c6fb83c");
 	}
 	getMultiparts(searchTXID){
 		var self = this;
@@ -37,7 +37,10 @@ class Lookup extends Component {
 		})
 	}
 	updateSearchText(event){
-		console.log
+		console.log(event.target.value)
+		this.setState({
+			searchText: event.target.value
+		})
 	}
 	render(){
 		console.log(this.state);
