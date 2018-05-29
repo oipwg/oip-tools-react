@@ -3,25 +3,34 @@ import React, { Component } from 'react'
 import ArtifactViewer from './ArtifactViewer.js';
 
 class Artifact extends Component {
-	render(){
+	constructor(props){
+		super(props);
+	
+			this.state = {
+				multiparts: [],
+				artifact: undefined
+			}
+	
+			this.updateSearchText = this.updateSearchText.bind(this)
+		}
+		componentDidMount(){
+		}
+		updateSearchText(event){
+			console.log(event.target.value)
+			this.setState({
+				searchText: event.target.value
+			})
+		}
+		render(){
+			console.log(this.state)
 		return(
-		<div>
-			<h1>Artifact Inspector</h1>
-			<div class="form-group">
-    		<label for="exampleFormControlTextarea1"></label>
-    		<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-  			</div>
-			<button onClick={ (event) => this.getMultiparts(this.state.searchText)}>
-			Submit
-			</button>
-			
-				<ArtifactViewer />
-				
-				<h3 className="text-center" style={{marginTop:"20px"}}>Artifact</h3>
-			{this.state.artifact ? <ArtifactViewer artifact={this.state.artifact} /> : ""}
-			
-		</div>
-				)
+			<div>
+				<h1 className="text-center">Artifact Inspector</h1>
+				<textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+				<h3 className="text-center" style={{marginTop:"20px"}}>Artifact Viewer</h3>
+				<ArtifactViewer artifactString={this.state.artifactText} />
+			</div>
+		)
 	}
 }
 

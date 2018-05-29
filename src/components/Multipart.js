@@ -7,31 +7,25 @@ constructor(props){
 	super(props);
 
 		this.state = {
-			multiparts: [],
-			artifact: undefined
+			mpText: ""
 		}
 
-		this.updateSearchText = this.updateSearchText.bind(this)
+		this.updateMultipartText = this.updateMultipartText.bind(this)
 	}
-	componentDidMount(){
-	}
-	updateSearchText(event){
+	updateMultipartText(event){
 		console.log(event.target.value)
 		this.setState({
-			searchText: event.target.value
+			mpText: event.target.value
 		})
 	}
-	render(){
-		console.log(this.state)
+	render()
+	{
 		return(
 		<div>
-			<h1>Multipart Inspector</h1>
-			<div className="form-group">
-    			<label htmlFor="exampleFormControlTextarea1"></label>
-    			<textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>	
-  			</div>
-			<h3 className="text-center" style={{marginTop:"20px"}}>Multipart</h3>
-			<MultipartViewer multipartString={this.state.multipartString} />
+			<h1 className="text-center">Multipart Inspector</h1>
+    		<textarea onChange={this.updateMultipartText} className="form-control" id="searchtext" type="text" rows="4"></textarea>
+			<h3 className="text-center" style={{marginTop:"20px"}}>Multipart Viewer</h3>
+			<MultipartViewer multipartString={this.state.mpText} />
 		</div>
 		)
 	}
