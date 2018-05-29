@@ -1,25 +1,37 @@
 import React, { Component } from 'react';
+import { Multipart } from 'oip-js';
 
 class MultipartViewer extends Component {
 	render(){
-		if (!this.props.multipart)
-			this.props.multipart = {};
+		var mp;
+
+		if (!this.props.multipart){
+			if (this.props.multipartString) {
+				var tmpMp = new Multipart();
+				tmpMp.fromString(this.props.multipartString)
+				mp = tmpMp;
+			} else {
+				mp = new Multipart();
+			}
+		} else {
+			mp = this.props.multipart;
+		}
 
 		return(
 			<div className="card" style={{marginTop:"20px"}}>
   				<div className="card-body">
-				  <p>TXID: <code>{this.props.multipart.getTXID()}</code></p>
+				  <p>TXID: <code>{mp.getTXID()}</code></p>
   						<div>FloData:
 					<div className="alert alert-secondary" style={{wordBreak:"break-all"}} role="alert">
-					  {this.props.multipart.toString()}
+					  {mp.toString()}
 						</div>
 					</div>
-    				<p>Part Number: <code>{this.props.multipart.getPartNumber()}</code></p>
-					<p>Total Multipart Length: <code>{this.props.multipart.getTotalParts()}</code></p>
-					<p>Publisher Address: <code>{this.props.multipart.getPublisherAddress()}</code></p>
-					<p>FirstTXIDRef: <code>{this.props.multipart.getFirstPartTXID()}</code></p>
-					<p>Signature: <code>{this.props.multipart.getSignature()}</code></p>
-					<p>PartData: <code style={{wordBreak:"break-all"}}> {this.props.multipart.getChoppedStringData()}</code></p>
+    				<p>Part Number: <code>{mp.getPartNumber()}</code></p>
+					<p>Total Multipart Length: <code>{mp.getTotalParts()}</code></p>
+					<p>Publisher Address: <code>{mp.getPublisherAddress()}</code></p>
+					<p>FirstTXIDRef: <code>{mp.getFirstPartTXID()}</code></p>
+					<p>Signature: <code>{mp.getSignature()}</code></p>
+					<p>PartData: <code style={{wordBreak:"break-all"}}> {mp.getChoppedStringData()}</code></p>
   				</div>
 			</div>
 		)

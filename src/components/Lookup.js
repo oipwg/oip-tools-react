@@ -11,14 +11,14 @@ class Lookup extends Component {
 
 		this.state = {
 			multiparts: [],
-			artifact: ""
+			artifact: undefined
 		}
 
 		this.getMultiparts = this.getMultiparts.bind(this)
 		this.updateSearchText = this.updateSearchText.bind(this)
 	}
 	componentDidMount(){
-		this.getMultiparts("c6fb83c");
+		this.getMultiparts("");
 	}
 	getMultiparts(searchTXID){
 		var self = this;
