@@ -25,7 +25,10 @@ constructor(props){
 			<h1 className="text-center">Multipart Inspector</h1>
     		<textarea onChange={this.updateMultipartText} className="form-control" id="searchtext" type="text" rows="4"></textarea>
 			<h3 className="text-center" style={{marginTop:"20px"}}>Multipart Viewer</h3>
-			<MultipartViewer multipartString={this.state.mpText} />
+			{
+				this.state.mpText !== "" ? <MultipartViewer multipartString={this.state.mpText}  /> : ""
+			}
+
 		</div>
 		)
 	}
