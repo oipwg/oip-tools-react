@@ -20,7 +20,6 @@ constructor(props){
 	}
 	render()
 	{
-
 		return(
 		<div>
 			<h1 className="text-center">Multipart Inspector</h1>
