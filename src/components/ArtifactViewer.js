@@ -1,20 +1,29 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Artifact } from 'oip-js';
 
 class ArtifactViewer extends Component {
 	render(){
-		var displayJSONString = "", txid;
+		var art;
 
 		if (this.props.artifact){
-			displayJSONString = JSON.stringify(this.props.artifact.toJSON(), undefined, 4)
-			txid = this.props.artifact.getTXID()
+			art = this.props.artifact;
+		} else if (this.props.artifactString) {
+			var tmpArt = new Artifact();
+			tmpArt.fromJSON(JSON.parse(this.props.artifactString))
+			art = tmpArt;
+
+
+			
+		} else {
+			art = new Artifact();
 		}
 
 		return(
 			<div className="card" style={{marginTop:"20px"}}>
   				<div className="card-body" style={{whiteSpace:"pre"}}>
-				    <p>TXID:<code>{txid}</code></p>
+				    <p>TXID: <code>{art.getTXID()}</code></p>
 					<div className="alert alert-secondary" role="alert">
-						{displayJSONString}
+						{JSON.stringify(art.toJSON(), undefined, 4)}
   					</div>
 				</div>
 			</div>
