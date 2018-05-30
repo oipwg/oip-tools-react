@@ -15,6 +15,7 @@ class AppRoutes extends Component {
 		return(
 			<div>
 				<Header/>
+				<br />
 				<Switch>
 					<Route path="/artifact" render={props => <Artifact Core={this.props.Core} {...props} />} />
 					<Route path="/multipart" render={props => <Multipart Core={this.props.Core} {...props} />} />
