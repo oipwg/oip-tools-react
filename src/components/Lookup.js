@@ -46,7 +46,6 @@ class Lookup extends Component {
 		console.log(this.state);
 		return(
 		<div className="container">
-			<h1 className="text-center">OIP Artifact Explorer</h1>
 			<div className="input-group row">
 			<label htmlFor="ArtifactLookup" className="col-form-label" style={{marginRight:"10px"}}>Artifact ID:</label>
   				<input onChange={this.updateSearchText} type="text" className="form-control"/>
