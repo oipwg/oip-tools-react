@@ -20,9 +20,10 @@ class Header extends Component {
   			</button>
   			<div className="collapse navbar-collapse" id="navbarNavAltMarkup">
     		<div className="navbar-nav">
-      				<a className="nav-item nav-link active" href="/">Artifact Explorer<span className="sr-only">(current)</span></a>
+      				<a className="nav-item nav-link" href="/">Artifact Explorer<span className="sr-only">(current)</span></a>
       				<a className="nav-item nav-link" href="/multipart">Multipart Inspector</a>
       				<a className="nav-item nav-link" href="/artifact">Artifact Inspector</a>
+					<a className="nav-item nav-link" href="/BulkDownloadContainer">Downloader</a>
     		</div>
   			</div>
 			</nav>
