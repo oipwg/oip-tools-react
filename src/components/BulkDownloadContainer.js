@@ -22,8 +22,8 @@ class BulkDownloadContainer extends Component {
             <div class="card">
                 <div class="card-header">
                         <p className="OpenFolder"><img width="30" height="30" src={Folder} style={{marginRight:"10px"}}/>{art.getTitle()}</p>
-                        <p className="ArtDownloadAmount">{art.getFiles().length} files 3.94 GB in Artifact</p>
-                        <p className="ArtSelectDownload">Selected: 3.94 GB</p>
+                        <p className="ArtDownloadAmount">{art.getFiles().length} {} in Artifact</p>
+                        <p className="ArtSelectDownload">Selected:</p>
                 </div>
                 <div class="card-body">
                     <h5 class="card-title"></h5>
