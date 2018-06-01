@@ -16,7 +16,7 @@ class MultipartViewer extends Component {
 		} else {
 			mp = this.props.multipart;
 		}
-
+		
 		return(
 			<div className="card" style={{marginTop:"20px"}}>
   				<div className="card-body">

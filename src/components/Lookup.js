@@ -17,9 +17,7 @@ class Lookup extends Component {
 		this.getMultiparts = this.getMultiparts.bind(this)
 		this.updateSearchText = this.updateSearchText.bind(this)
 	}
-	componentDidMount(){
-		this.getMultiparts("");
-	}
+	
 	getMultiparts(searchTXID){
 		var self = this;
 
