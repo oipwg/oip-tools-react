@@ -32,8 +32,8 @@ class DownloadFileList extends Component {
             </th>
             <td><img width="30" height="30" src={Video}/></td>
             <td>{file.getFilename()}</td>
-            <td>Key Movie</td>
-            <td>11.68 MB</td>
+            <td>{file.getType()}</td>
+            <td>{file.getFilesize()}</td>
           </tr>
         )
     }
