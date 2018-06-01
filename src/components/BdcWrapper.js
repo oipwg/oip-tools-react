@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import BulkDownloadContainer from './BulkDownloadContainer.js'
+import Loader from './Loader.js';
 
 class BdcWrapper extends Component {
     constructor(props) {
@@ -37,7 +38,11 @@ class BdcWrapper extends Component {
     render() 
     { 
         return (
+            
+
+            
             <div>
+                <Loader/>
                 <BulkDownloadContainer artifact={this.state.artifact}/>
             </div>
         )
