@@ -57,7 +57,7 @@ class BulkDownloadContainer extends Component {
                         </div>
                     </div>
                 </div>
-                å</div>
+                </div>
     )
     }
 }
