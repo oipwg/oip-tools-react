@@ -10,16 +10,21 @@ import { Artifact } from "oip-js";
 class Loader extends Component {
     constructor(props) {
         super(props);
-        console.log(this.props.artifact);
+    }
+    
+
+        render(){
+        console.log(this.props.artifact)
         var art;
 
-        if (this.props.artifact) {
+        if (this.props.artifact){
             art = this.props.artifact;
         } else {
-            art = new Artifact();
+			art = new Artifact();
         }
-    }
-    render() {
+        
+  
+    
         return (
             <div>
                 <table className="table">
@@ -37,12 +42,12 @@ class Loader extends Component {
                                     width="50"
                                     height="50"
                                     src={Folder}
-                                    style={{ margin: "0px" }}
-                                />
+                                    style={{ marginRight: "10px" }}/>
                             </th>
+                            
                             <td>
                                 <div>
-                                    <h4 />
+                                    {art.getTitle()}
                                 </div>
                                 <div>
                                     249.6 MB of 3.94 GB (6.19%)
@@ -69,7 +74,7 @@ class Loader extends Component {
                                     width="30"
                                     height="30"
                                     src={Settings}
-                                    style={{ marginLeft: "10px" }}
+                                    style={{ marginLeft: "0px" }}
                                 />
                             </td>
                         </tr>
@@ -82,14 +87,16 @@ class Loader extends Component {
                             <h4 style={{ marginLeft: "20px" }}>
                                 Connected 8 nodes, DL from 7 nodes
                             </h4>
-                            <img
-                                className="float-right"
-                                style={{ marginRight: "35px" }}
-                                width="30"
-                                height="30"
-                                src={Pause}/>
-                            <h4 className="float-right">
-                            </h4>
+                            <p className="Pause" style={{}}>
+                            <img className="float-right"  style={{ marginRight: "5px" }}width="30"height="30"src={Pause} /></p>
+
+                            <p className="Upload" style={{}}>
+                            <img  style={{ marginRight: "5px" }}width="30"height="30"src={Up}/>0.00KB/S</p>
+
+
+                            <p className="Download" style={{}}>
+                            <img style={{ marginRight: "5px" }}width="30"height="30"src={Down}/>2.67MB/S</p>
+                            
                         </div>
                     </div>
                 </div>
