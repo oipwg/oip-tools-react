@@ -16,6 +16,7 @@ class DownloadFileList extends Component {
         super(props);
 
         this.getExtension = this.getExtension.bind(this);
+        this.onInputChange = this.onInputChange.bind(this);
     }
     getExtension(filename){
       let splitFilename = filename.split(".");
@@ -23,8 +24,19 @@ class DownloadFileList extends Component {
   
       return splitFilename[indexToGrab];
     }
+    onInputChange(event){
+      // Connect me to the Input
+      // value is stored most likely at e.target.value
+      var selected = event.target.checked;
+
+      console.log("Checked: " + selected);
+
+      var ind = this.props.fileIndex;
+
+      this.props.onFileSelectChange(selected, ind)
+    }
     render(){
-      console.log(this.props)
+      // console.log(this.props)
       var file;
 
       if (this.props.file){
@@ -34,7 +46,7 @@ class DownloadFileList extends Component {
       }
       
       var extension = this.getExtension(file.getFilename());
-      console.log(extension)
+      // console.log(extension)
 
       var fileImage;
 
@@ -53,7 +65,7 @@ class DownloadFileList extends Component {
         <tr>
           <th scope="row">
             <div className="form-check">
-              <input className="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="..."/>
+              <input onClick={this.onInputChange} className="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="..."/>
             </div>
             </th>
             <td><img width="30" height="30" src={fileImage}/></td>
