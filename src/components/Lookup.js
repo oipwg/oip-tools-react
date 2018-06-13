@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { Artifact } from 'oip-js';
+import { Artifact, Multipart } from 'oip-js';
 
 import ArtifactViewer from './ArtifactViewer.js'
 import MultipartViewer from './MultipartViewer.js'
@@ -22,9 +22,13 @@ class Lookup extends Component {
 		var self = this;
 
 		this.props.Core.Index.getMultipartsForArtifact(searchTXID, function(mps){
-			var art = new Artifact();
+			if (mps.length === 1 && mps[0] instanceof Artifact) {
+				var art = mps[0]
+			} else {
+				var art = new Artifact();
 
-			art.fromMultiparts(mps);
+				art.fromMultiparts(mps);
+			}
 
 			self.setState({
 				multiparts: mps,
@@ -61,7 +65,8 @@ class Lookup extends Component {
 			<h3 className="text-center">Multiparts</h3>
 			{
 				this.state.multiparts.map(function(mp, i){
-					return <MultipartViewer key={i} multipart={mp} />
+					if (mp instanceof Multipart)
+						return <MultipartViewer key={i} multipart={mp} />
 				})
 			}
 			<h3 className="text-center" style={{marginTop:"20px"}}>Artifact</h3>
